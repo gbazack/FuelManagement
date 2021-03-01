@@ -1,0 +1,213 @@
+﻿<!--
+author: R$D of Group 1
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>DMS | Sign In</title>
+    <!-- custom-theme -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Esteem Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //custom-theme -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../static/css/snow.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../static/css/component.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../static/css/style_grid.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- font-awesome-icons -->
+    <link href="../static/css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+</head>
+<body>
+
+    <style>
+
+
+
+
+
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #0094ff;
+            color: white;
+            padding: 12px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 30%;
+        }
+
+            /* Add a hover effect for buttons */
+            button:hover {
+                opacity: 0.8;
+            }
+
+
+        /* The "Forgot password" text */
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+
+        meter {
+            /* Reset the default appearance */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0 auto 1em;
+            width: 100%;
+            height: 0.5em;
+            /* Applicable only to Firefox */
+            background: none;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+            meter::-webkit-meter-bar {
+                background: none;
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+            /* Webkit based browsers */
+            meter[value="1"]::-webkit-meter-optimum-value {
+                background: red;
+            }
+
+            meter[value="2"]::-webkit-meter-optimum-value {
+                background: yellow;
+            }
+
+            meter[value="3"]::-webkit-meter-optimum-value {
+                background: orange;
+            }
+
+            meter[value="4"]::-webkit-meter-optimum-value {
+                background: green;
+            }
+    </style>
+
+    <!-- /pages_agile_info_w3l -->
+
+    <div class="pages_agile_info_w3l">
+        <!-- /login -->
+        <div class="over_lay_agile_pages_w3ls">
+            <div class="registration">
+
+                <div class="signin-form profile">
+                    <h2>Registration Form</h2>
+                    <div class="login-form">
+                        <form action="/get_data" method="Get">
+                            <input type="text" name="uname" placeholder="Username" required>
+                            <input type="email" name="email" placeholder="Email" required>
+                            <input type="text" name="contact" placeholder="Contact" required>
+                            <input type="password" name="pwd" placeholder="Password" required>
+
+                            <label><b style="font-family:'Times New Roman', Times, serif;font-size:larger">Select Category:</b></label><br />
+                            <select style="font-family:'Times New Roman', Times, serif;font-size:larger " name="Cat">
+                                <option value="Admin" style="font-family:'Times New Roman';font-size:medium">
+                                    Administration
+                                </option>
+                                <option value="Auth" style="font-family:'Times New Roman';font-size:medium">
+                                    Authority
+                                </option>
+                                <option value="Agent" style="font-family:'Times New Roman';font-size:medium">
+                                    Field Agent
+                                </option>
+                            </select>
+
+                            <input type="password" name="code" placeholder="Code" required>
+
+                            <div class="tp">
+                                <input type="submit" value="REGISTER">
+                            </div>
+                        </form>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+            <!--copy rights start here-->
+            <div class="copyrights_agile">
+                <p>© 2019 DMS. All Rights Reserved | Design by  <a href="http://www.groupone-cm.com/" target="_blank">R&D | Group 1</a> </p>
+            </div>
+            <!--copy rights end here-->
+        </div>
+    </div>
+    <!-- /login -->
+    <!-- //pages_agile_info_w3l -->
+    <!-- js -->
+
+
+    <script type="text/javascript" src="../static/js/jquery-2.1.4.min.js"></script>
+    <script src="../static/js/modernizr.custom.js"></script>
+
+    <script src="../static/js/classie.js"></script>
+    <script src="../static/js/gnmenu.js"></script>
+    <script>
+        new gnMenu(document.getElementById('gn-menu'));
+    </script>
+
+    <!-- //js -->
+
+    <script src="../static/js/screenfull.js"></script>
+    <script>
+        $(function () {
+            $('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+            if (!screenfull.enabled) {
+                return false;
+            }
+
+
+
+            $('#toggle').click(function () {
+                screenfull.toggle($('#container')[0]);
+            });
+        });
+    </script>
+    <script src="../static/js/jquery.nicescroll.js"></script>
+    <script src="../static/js/scripts.js"></script>
+    <script src="../static/js/snow.js"></script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-36251023-1']);
+        _gaq.push(['_setDomainName', 'jqueryscript.net']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+    <script type="text/javascript" src="../static/js/bootstrap-3.1.1.min.js"></script>
+
+
+</body>
+</html>
