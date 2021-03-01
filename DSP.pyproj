@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>71283fa3-c924-4633-9fd2-7402923c096f</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectTypeGuids>{789894c7-04a9-4a11-a6b5-3f4435165112};{1b580a1a-fdb3-4b32-83e1-6407eb2722e6};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>runserver.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <LaunchProvider>Web launcher</LaunchProvider>
+    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+    <OutputPath>.</OutputPath>
+    <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
+    <Name>DSP</Name>
+    <RootNamespace>DSP</RootNamespace>
+    <InterpreterId>Global|PythonCore|3.7</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="runserver.py" />
+    <Compile Include="DSP\__init__.py" />
+    <Compile Include="DSP\views.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DSP\" />
+    <Folder Include="DSP\static\" />
+    <Folder Include="DSP\static\content\" />
+    <Folder Include="DSP\static\fonts\" />
+    <Folder Include="DSP\static\scripts\" />
+    <Folder Include="DSP\templates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DSP\templates\main-page.html" />
+    <Content Include="DSP\templates\login.html" />
+    <Content Include="DSP\templates\index.html" />
+    <Content Include="DSP\templates\rwhub.html" />
+    <Content Include="DSP\templates\rwfa.html" />
+    <Content Include="DSP\templates\rwss.html" />
+    <Content Include="DSP\templates\main-pageadmin.html" />
+    <Content Include="DSP\templates\register.html" />
+    <Content Include="DSP\templates\purchase.html" />
+    <Content Include="DSP\templates\purinf.html" />
+    <Content Include="DSP\templates\database.html" />
+    <Content Include="DSP\templates\siteprofile.html" />
+    <Content Include="DSP\templates\adfirst.html" />
+    <Content Include="DSP\templates\adrt.html" />
+    <Content Include="DSP\templates\adrtu.html" />
+    <Content Include="DSP\templates\graphdisplay.html" />
+    <Content Include="DSP\templates\fcpfirst.html" />
+    <Content Include="DSP\templates\fcprs.html" />
+    <Content Include="DSP\templates\porder.html" />
+    <Content Include="requirements.txt" />
+    <Content Include="DSP\static\content\bootstrap.css" />
+    <Content Include="DSP\static\content\bootstrap.min.css" />
+    <Content Include="DSP\static\content\site.css" />
+    <Content Include="DSP\static\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="DSP\static\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="DSP\static\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="DSP\static\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="DSP\static\scripts\bootstrap.js" />
+    <Content Include="DSP\static\scripts\bootstrap.min.js" />
+    <Content Include="DSP\static\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="DSP\static\scripts\jquery-1.10.2.js" />
+    <Content Include="DSP\static\scripts\jquery-1.10.2.min.js" />
+    <Content Include="DSP\static\scripts\jquery-1.10.2.min.map" />
+    <Content Include="DSP\static\scripts\jquery.validate-vsdoc.js" />
+    <Content Include="DSP\static\scripts\jquery.validate.js" />
+    <Content Include="DSP\static\scripts\jquery.validate.min.js" />
+    <Content Include="DSP\static\scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="DSP\static\scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="DSP\static\scripts\modernizr-2.6.2.js" />
+    <Content Include="DSP\static\scripts\respond.js" />
+    <Content Include="DSP\static\scripts\respond.min.js" />
+    <Content Include="DSP\static\scripts\_references.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.7" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
+  <!-- Specify pre- and post-build commands in the BeforeBuild and 
+       AfterBuild targets below. -->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "DSP", "DSP\DSP.pyproj", "{71283FA3-C924-4633-9FD2-7402923C096F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71283FA3-C924-4633-9FD2-7402923C096F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71283FA3-C924-4633-9FD2-7402923C096F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71283FA3-C924-4633-9FD2-7402923C096F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71283FA3-C924-4633-9FD2-7402923C096F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05045A1F-099C-4B24-B200-0CAD2E26943E}
+	EndGlobalSection
+EndGlobal
