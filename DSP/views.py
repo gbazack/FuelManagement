@@ -16,7 +16,7 @@ from flask import Flask, request, abort, jsonify, send_from_directory, render_te
 import pandas as pd
 import sqlite3,csv
 import numpy as np
-from email.mime.text import MIMEText 
+from email.mime.text import MIMEText
 import smtplib
 from time import strptime, strftime
 import pygal
@@ -25,9 +25,10 @@ import sys, shutil
 import flask
 from lxml import etree
 from IPython.display import display_html
-import sklearn 
+import sklearn
 from sklearn.neural_network import MLPClassifier
-from sklearn.externals import joblib
+import joblib
+# from sklearn.externals import joblib
 from sklearn.preprocessing import StandardScaler
 from werkzeug.utils import secure_filename
 from wtforms import Form, StringField, DecimalField, SelectField, TextAreaField, PasswordField, validators
@@ -80,22 +81,22 @@ def opendatabase(x,y): # open the account database
     data= cursor.fetchall()
     return data
 
-def sendmail(to,subject,text): # send to gmail 
-    user = 'refillingdatabase@gmail.com' 
-    pwd = 'RefillingDatabase18' 
-    msg = MIMEText(text) 
-    msg['From'] = 'refillingdatabase@gmail.com' 
+def sendmail(to,subject,text): # send to gmail
+    user = 'refillingdatabase@gmail.com'
+    pwd = 'RefillingDatabase18'
+    msg = MIMEText(text)
+    msg['From'] = 'refillingdatabase@gmail.com'
     msg['To'] = to
-    msg['Subject'] = subject 
-    try: 
-        smtpServer = smtplib.SMTP('smtp.gmail.com', 587) 
-        smtpServer.ehlo() 
-        smtpServer.starttls() 
-        smtpServer.ehlo() 
-        smtpServer.login(user, pwd) 
-        smtpServer.sendmail(user, to, msg.as_string()) 
-        smtpServer.close() 
-    except SMTPException: 
+    msg['Subject'] = subject
+    try:
+        smtpServer = smtplib.SMTP('smtp.gmail.com', 587)
+        smtpServer.ehlo()
+        smtpServer.starttls()
+        smtpServer.ehlo()
+        smtpServer.login(user, pwd)
+        smtpServer.sendmail(user, to, msg.as_string())
+        smtpServer.close()
+    except SMTPException:
         print('No connection')
 
 
@@ -106,7 +107,7 @@ def get_login(): # compares the values input to that in the database
     """Renders the about page."""
     global name
     global data
-    
+
     name=request.values.get('luname')
     password=request.values.get('psd')
     data=opendatabase('Register.sqlite','SELECT * FROM User')
@@ -220,8 +221,8 @@ def get_data(): # store the data collected from account page in the database
                              year=str(datetime.now().day)+'/'+str(datetime.now().month)+'/'+str(datetime.now().year))
 
 
- 
-#############################################  RefuelingWeb  ########################################################  
+
+#############################################  RefuelingWeb  ########################################################
 
 @app.route('/porder')
 def porder():
@@ -230,7 +231,7 @@ def porder():
         'porder.html',
         year=datetime.now().year,
     )
-       
+
 @app.route('/rwhomefa')
 def rwhomefa():
     global name
@@ -251,7 +252,7 @@ def rwhomefa():
         )
 
 @app.route('/purchase')
-def purchase(): 
+def purchase():
     global site
     data1= opendatabase('Register.sqlite','SELECT * FROM Scode')
     data=opendatabase('Register.sqlite','SELECT * FROM TRegister')
@@ -274,7 +275,7 @@ def get_purchase(): # compares the values input to that in the database
     Seller=request.values.get('SN')
     Quantity=request.values.get('Q')
     Payment=request.values.get('P')
-    Date=str(date.today()).split()[0] 
+    Date=str(date.today()).split()[0]
     Time=strftime("%H:%M:%S")
     conn = sqlite3.connect('GenRefillingDatabase.sqlite') # Open database
     cursor = conn.cursor()
@@ -291,9 +292,9 @@ def get_purchase(): # compares the values input to that in the database
         year=str(datetime.now().day)+'/'+str(datetime.now().month)+'/'+str(datetime.now().year),
        name=name, stat=Station, sel=Seller, quan=Quantity, pay=Payment)
 
-         
+
 @app.route('/hub',methods=['GET', 'POST'])
-def hub(): 
+def hub():
     """Renders the hub page."""
     i=0
     global n, Pur, Ref
@@ -365,8 +366,8 @@ def sitegraph(): # function produces monthly picture on the siteprofile page
     month=str(datetime.now().month)+'/'+str(datetime.now().year)
     for row in data:
         fdate=str(row[8][5:7])+'/'+str(row[8][:4])
-        if fdate==month: 
-            dataj.append(row[0])  
+        if fdate==month:
+            dataj.append(row[0])
             graph.add(row[0],  row[7])
     graph_data = graph.render_data_uri()
     return render_template("siteprofile.html", graph_data = graph_data,name=name,year=str(datetime.now().day)+'/'+str(datetime.now().month)+'/'+str(datetime.now().year),title='Sitegraph')
@@ -382,8 +383,8 @@ def sitegraph1(): # function that causes the change of graph on the siteprofile 
     month=str(request.values.get('smonth'))+'/'+str(request.values.get('syear'))
     for row in data:
         fdate=str(int(row[8][5:7]))+'/'+str(row[8][:4])
-        if fdate==month: 
-            dataj.append(row[0])  
+        if fdate==month:
+            dataj.append(row[0])
             graph.add(row[0],  row[7])
     graph_data = graph.render_data_uri()
     return render_template("siteprofile.html", graph_data = graph_data,name=name,year=str(datetime.now().day)+'/'+str(datetime.now().month)+'/'+str(datetime.now().year),title='Sitegraph')
@@ -395,7 +396,7 @@ def purchase_order(): # compares the values input to that in the database
     global site
     Site=request.values.get('Site')
     Quan=request.values.get('Quan')
-    Date=str(date.today()).split()[0] 
+    Date=str(date.today()).split()[0]
     Time=strftime("%H:%M:%S")
     conn = sqlite3.connect('Register.sqlite') # Open database
     cursor = conn.cursor()
@@ -417,17 +418,17 @@ def purchase_order(): # compares the values input to that in the database
 
 
 
-def PurV(a,b): #Verify if ammount paid for purchase 
+def PurV(a,b): #Verify if ammount paid for purchase
     if float(a)*600==float(b):
-        return  "Purchase Amount Accepted!!!" 
+        return  "Purchase Amount Accepted!!!"
     else:
-        return  "Purchase Amount Denied!!!" 
-    
+        return  "Purchase Amount Denied!!!"
+
 def RefV(a): #Verify if refilling was ok
     if a=='1':
-        return  "Fueling Welldone!!!" 
+        return  "Fueling Welldone!!!"
     if a=='0':
-        return "Attention theft!!!" 
+        return "Attention theft!!!"
 
 def CurrentINFO(row): #Give out information on fueling.
     CurIN=[]
@@ -435,8 +436,8 @@ def CurrentINFO(row): #Give out information on fueling.
     RInf=''
     PInf=PurV(row[1],row[4])
     CurIN=[row[0],row[5],row[6],row[7],row[4],row[1]]
-    RInf=RefV(row[10])     
-    return  CurIN,PInf,RInf,row[8],row[9]        
+    RInf=RefV(row[10])
+    return  CurIN,PInf,RInf,row[8],row[9]
 
 def PreviousINFO(row1): #Give out information on fueling
 
@@ -451,19 +452,19 @@ def PreviousINFO(row1): #Give out information on fueling
     for row in data:
         if row[0]==row1[0]:# searching for generator
             Arr.append(row)
-    for row in Arr: 
+    for row in Arr:
        if row[0]==row1[0] and row[9]==row1[9] and j>0:
            row=Arr[j-1]
            PInf=PurV(row[1],row[4])
            CurIN=[row[0],row[5],row[6],row[7],row[4]]
-           RInf=RefV(row[10]) 
+           RInf=RefV(row[10])
            return  CurIN,PInf,RInf,row[8],row[9]
        else:
            PInf=''
            CurIN=[]
            RInf=''
        j+=1
-    return  CurIN,PInf,RInf,row[8],row[9]    
+    return  CurIN,PInf,RInf,row[8],row[9]
 
 def IntervalINFO(row): #Time interval of refueling a generator
     a,b,c,date1,time1=PreviousINFO(row)
@@ -480,7 +481,7 @@ def IntervalINFO(row): #Time interval of refueling a generator
     else:
         Hours=Time1[3]-Time2[3]
     return Days,Hours
-    
+
 def fillVisual():
     conn = sqlite3.connect('Visual.sqlite')
     cursor = conn.cursor()
@@ -509,7 +510,7 @@ def fillVisual():
         conn.commit()
 
     return p1
-    
+
 
 
 
@@ -518,7 +519,7 @@ def fillVisual():
 
 def VolCompare(Prow,Frow): #Compare Volume of different generators
     if Frow[0]==Prow[0]: #comparing the Generator names
-        if Frow[1]==Prow[3]: #comparing the volume bought, refilled and fueled into the generator. 
+        if Frow[1]==Prow[3]: #comparing the volume bought, refilled and fueled into the generator.
             F='1'
         else:
             if (float(Prow[3])-float(Frow[1]))/float(Frow[1]) < 2/float(Frow[1]): #Accept slight loss of volume
@@ -546,25 +547,25 @@ def Organiser(i,k): #Searches and matches the right information
         for l in range(len(Purextra)):
             if dataF[t][0]==Purextra[l][0]:
                     List1.append(Purextra[l]+dataF[t] )#make a list of Purchase and Fueling of generators
-                   
+
     for r in range(len(List1)):
         FinalL=List1[r]#make a list of one generators whose refilling information has arrive.
     # Converting all int and floats to string
-    for h in range(6): 
+    for h in range(6):
         Prow[h]=str(FinalL[h])
     for h in range(4):
         Frow[h]=str(FinalL[h+7])
     #print(FinalL)
     F=VolCompare(Prow,Frow) #Verify if the fueling process has been carried out without fault.
     return F,Prow,Frow
-    
+
 
 
 
 
 F=''
 i,k,h=0,0,0
-    
+
 # Open the two database and read their tables
 
 
@@ -572,7 +573,7 @@ data1 = opendatabase("GenRefillingDatabase.sqlite",'SELECT * FROM GenFuelingData
 for Frow in data1:
     i=i+1
 Frow=np.array(Frow)
-    
+
 data1 = opendatabase("GenRefillingDatabase.sqlite",'SELECT * FROM GenPurchaseData')
 for Prow in data1:
     k=k+1
@@ -598,7 +599,7 @@ else:
     conn.commit()
     print('New fueling information')
 
-#############################################  RefuelingWeb  ######################################################## 
+#############################################  RefuelingWeb  ########################################################
 
 
 
@@ -606,7 +607,8 @@ else:
 
 cur_dir = os.path.dirname(__file__)
 path = 'E:\DSP\DSP\DSP'
-clf = pickle.load(open(os.path.join(cur_dir, 'pkl_objects\svm.pkl'), 'rb'))
+path_to_model=os.path.join(cur_dir, 'pkl_objects/svm.pkl')
+clf = pickle.load(open(path_to_model, 'rb'))
 UPLOAD_FOLDER = "E:\DSP\DSP\DSP"
 
 @app.route('/adhome')
@@ -631,8 +633,8 @@ def gettable():
 				List.append(float(request.form[str(i)]))
 
 	s = pd.DataFrame([List[:7],List[7:14],List[14:21],List[21:28],List[28:35]])
-	s.columns= [ 'Site Name', 'CONSUMPTION_RATE', 
-                         'RUNNING_TIME', 'NUMBER_OF_DAYS', 'CONSUMPTION_HIS', 
+	s.columns= [ 'Site Name', 'CONSUMPTION_RATE',
+                         'RUNNING_TIME', 'NUMBER_OF_DAYS', 'CONSUMPTION_HIS',
                          'PREVIOUS_FUEL_QTE', 'QTE_FUEL_FOUND']
 	return s
 
@@ -645,7 +647,7 @@ def predicttable():
 	Data['Quanitity_consumed_btn_visits'] = Data['PREVIOUS_FUEL_QTE'] - Data['QTE_FUEL_FOUND']
 	Data['Quanitity_consumed_btn_visits_Per_Day'] = Data['Quanitity_consumed_btn_visits']/(Data['NUMBER_OF_DAYS'])
 	Data.loc[~np.isfinite(Data['Quanitity_consumed_btn_visits_Per_Day']), 'Quanitity_consumed_btn_visits_Per_Day']= 0
-	Data['Running time per day'] = Data["RUNNING_TIME"]/Data["NUMBER_OF_DAYS"]             
+	Data['Running time per day'] = Data["RUNNING_TIME"]/Data["NUMBER_OF_DAYS"]
 	Data.loc[~np.isfinite(Data['Running time per day']), 'Running time per day'] = 0
 	Data['Maximum_consumption_perDay'] = Data[['CONSUMPTION_RATE']]*24
 	X = Data [['CONSUMPTION_RATE','Running time per day','consumption_perDay_within_a_period','Maximum_consumption_perDay']]
@@ -663,7 +665,7 @@ def predicttable():
 	        RF_Predict_Data ['Predictions'][k]= 'normal'
 	RES1 = RF_Predict_Data[RF_Predict_Data['Predictions']=='Anomaly']
 	RES2 = RF_Predict_Data[RF_Predict_Data['Predictions']=='normal']
-	
+
 	return  render_template(
         'adrt.html',
         year=datetime.now().year, name=name, RA=RES1, RN=RES2
@@ -672,7 +674,7 @@ def predicttable():
 def uploader():
     if request.method == 'POST':
         f = request.files['file']
-        absolute_file = os.path.abspath(UPLOAD_FOLDER + f.filename)		
+        absolute_file = os.path.abspath(UPLOAD_FOLDER + f.filename)
         f.save(absolute_file)
     return absolute_file
 
@@ -688,7 +690,7 @@ def loadingpre():
     Data['Quanitity_consumed_btn_visits'] = Data['PREVIOUS_FUEL_QTE'] - Data['QTE_FUEL_FOUND']
     Data['Quanitity_consumed_btn_visits_Per_Day'] = Data['Quanitity_consumed_btn_visits']/(Data['NUMBER_OF_DAYS'])
     Data.loc[~np.isfinite(Data['Quanitity_consumed_btn_visits_Per_Day']), 'Quanitity_consumed_btn_visits_Per_Day']= 0
-    Data['Running time per day'] = Data["RUNNING_TIME"]/Data["NUMBER_OF_DAYS"]             
+    Data['Running time per day'] = Data["RUNNING_TIME"]/Data["NUMBER_OF_DAYS"]
     Data.loc[~np.isfinite(Data['Running time per day']), 'Running time per day'] = 0
     Data['Maximum_consumption_perDay'] = Data[['CONSUMPTION_RATE']]*24
     X = Data [['CONSUMPTION_RATE','Running time per day','consumption_perDay_within_a_period','Maximum_consumption_perDay']]

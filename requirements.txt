@@ -1,1 +1,12 @@
-Flask<1
+#Flask<1
+flask
+scikit-learn
+pandas
+pygal
+lxml
+ipython
+joblib
+wtforms
+pymysql
+importlib_metadata
+importlib-metadata
